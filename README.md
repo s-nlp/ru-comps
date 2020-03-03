@@ -6,13 +6,21 @@ This repository contains code and data related to the paper on noun compositiona
 
 A shorter version of this paper was earlier also presented at 
 
-*Puzyrev, D., Shelmanov, A., Panchenko, A. and Artemova, E., 2019, August. [A Dataset for Noun Compositionality Detection for a Slavic Language](https://www.aclweb.org/anthology/W19-3708/). In Proceedings of the 7th Workshop on Balto-Slavic Natural Language Processing (pp. 56-62).*
+*Puzyrev, D., Shelmanov, A., Panchenko, A. and Artemova, E., (2019): [A Dataset for Noun Compositionality Detection for a Slavic Language](https://www.aclweb.org/anthology/W19-3708/). In Proceedings of the 7th Workshop on Balto-Slavic Natural Language Processing (pp. 56-62).*
 
 In this papers, we present the first gold-standard corpus of Russian noun compounds annotated with compositionality information. We used Universal Dependency treebanks to collect noun compounds according to part of speech patterns, such as ADJ-NOUN or NOUN-NOUN and annotated them according to the following schema: a phrase can be either compositional, non-compositional, or ambiguous (i.e., depending on the context it can be interpreted both as compositional or non-compositional). Next, we conduct a series of experiments to evaluate both unsupervised and supervised methods for predicting compositionality. To expand this manually annotated dataset with more non-compositional compounds and streamline the annotation process we use active learning. We show that not only the methods, previously proposed for English, are easily adapted for Russian, but also can be exploited in active learning paradigm, that increases the efficiency of the annotation process.
 
 Examples of compositional (1), non-compositional (0),  and ambiguous (2) compounds are presented below:
 
-![alt text](figs/table0.png)
+![examples](figs/table0.png)
+
+The number of compositional and non-compositional compounds in our dataset is presented below:
+
+![statistics of the dataset](figs/table1.png)
+
+Examples of compounds and their contexts are presented below. In this example, *atom vodoroda* [hydrogen atom] is compositional (1), *novyi god* [New year celebration or new year] is ambiguous (2), and *vtoroyi eshelon* [second tier] is non-compositional (0).
+
+![examples in context](figs/table2.png)
 
 To refer to the dataset please use the following citations: 
 
