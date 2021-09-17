@@ -17,12 +17,15 @@ from tqdm import tqdm
 morph = Mystem()
 
 
-def acquiring(wordvecs, compvecs):
-    comp = pd.read_csv('ref.csv')
+def acquiring(wordvecs, compvecs, pos):
+    if pos == 'nouns':    
+	comp = pd.read_csv('compounds_NN_top10000_annotated.csv')
+    else:
+	comp = pd.read_csv('compounds_AN_top10000_annotated.csv')
 
     part1 = list(comp['Часть 1'].values)[250:]
     part2 = list(comp['Часть 2'].values)[250:]
-    values = list(comp['Класс композициональности'].values)[250:]
+    values = list(comp['Композициональность'].values)[250:]
 
     compounds = []
     classes = []
@@ -92,7 +95,7 @@ if __name__ == '__main__':
     parser.add_argument('compvecs', help='compounds vectors dump')
     args = parser.parse_args()
 
-    w1, w2, c, true = acquiring(args.wordvecs, args.compvecs)
+    w1, w2, c, true = acquiring(args.wordvecs, args.compvecs, 'nouns')
     
     vecs = make_train_data(w1, w2, c)
 

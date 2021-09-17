@@ -8,8 +8,11 @@ from argparse import ArgumentParser
 
 morph = Mystem()
 
-def acquiring(wordvecs, compvecs):
-    comp = pd.read_csv('compounds_select_1000_elena.csv')
+def acquiring(wordvecs, compvecs, pos):
+    if pos == 'nouns':    
+	comp = pd.read_csv('compounds_NN_top10000_annotated.csv')
+    else:
+	comp = pd.read_csv('compounds_AN_top10000_annotated.csv')
 
     part1 = list(comp['Часть 1'].values)
     part2 = list(comp['Часть 2'].values)
@@ -122,7 +125,7 @@ if __name__ == '__main__':
     parser.add_argument('compvecs', help='compounds vectors dump')
     args = parser.parse_args()
 
-    w1, w2, c, true = acquiring(args.wordvecs, args.compvecs)
+    w1, w2, c, true = acquiring(args.wordvecs, args.compvecs, 'nouns')
 
     cosine_between_parts_and_compound(w1, w2, c, true)
     chebyshev_between_parts_and_compound(w1, w2, c, true)
